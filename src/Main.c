@@ -15,7 +15,9 @@ int main(){
     MVector v = MVector_New(sizeof(char));
 
     for(int i = 0;i<100000000;i++){
-        if(v.size % 10000 == 0) printf("End: XSize: %lu, Size: %lu, Size: %lu\n",v.ExpandSize,v.size,v.SIZE);
+        if(v.size % 10000 == 0)
+            printf("End: XSize: %lu, Size: %lu, Size: %lu\n",v.ExpandSize,v.size,v.SIZE);
+        
         MVector_Push(&v,(char[]){'0'});
         //printf("%c\n",c);
     }
