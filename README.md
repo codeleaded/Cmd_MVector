@@ -1,193 +1,79 @@
-# Cmd_MVector
+# Project README
 
+## Overview
+This project is a C application that utilizes the MVector library to create and manipulate dynamic arrays. The application showcases memory management, resizing, and basic operations on a vector of characters.
 
-## Project Overview
+## Features
+- Dynamic array creation (`MVector_New`)
+- Appending elements to the vector (`MVector_Push`)
+- Memory management during array expansion
 
-This project implements specialized functionality related to mvector.
+## Project Structure
+```
+Cmd_MVector/
+├── build/              # .exe files produced by Main.c
+├── src/                # source code
+│   ├── Main.c          # Entry point
+│   └── MVector.h       # Header file for the MVector library
+└── Makefile.linux      # Linux Build configuration
+└── Makefile.windows    # Windows Build configuration
+└── Makefile.wine       # Wine Build configuration
+└── Makefile.web        # Emscripten Build configuration
+└── README.md           # This file
+└── LICENSE.txt         # Project License
+```
 
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for mvector
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
-
-### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
+## Prerequisites
+- C/C++ Compiler and Debugger (GCC, Clang)
 - Make utility
 - Standard development tools
 
-### Build Steps
-
-1. Navigate to project directory:
+## Build & Run
+### Linux
+To build the project on a Linux system:
 ```bash
 cd Cmd_MVector
+make -f Makefile.linux all
+./build/Main
 ```
 
-2. Build the project:
+For a debug build:
 ```bash
-make -f Makefile.(os) all
+make -f Makefile.linux alldebug
+gdb ./build/Main
 ```
 
-3. For clean rebuild:
+### Windows
+To build the project on a Windows system:
+```cmd
+cd Cmd_MVector
+make -f Makefile.windows all
+build\Main.exe
+```
+
+For a debug build using Wine:
+```cmd
+make -f Makefile.wine dg
+winedbg build\Main.exe
+```
+
+### Web Assembly
+To build the project for web assembly:
 ```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
+cd Cmd_MVector
+make -f Makefile.web all
+wasmtime ./build/Main.wasm
 ```
 
-4. If there are ./bin and ./libs directories, build libs with:
+For a clean rebuild:
 ```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
+make -f Makefile.linux clean
+make -f Makefile.linux all
 ```
 
-### Build Options
+For executing the built application:
 ```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
+./build/Main
 ```
 
-## Running the Project
-
-Execute the compiled binary:
-
-```bash
-./build/Main(.exe)
-```
-
-Or using make:
-```bash
-make -f Makefile.(os) exe
-```
-
-## Project Organization
-
-```
-Cmd_MVector/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
-```
-
-## Technical Details
-
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
-
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
-
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
-
-## Development Notes
-
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
-
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+This README provides the essential information about building and running the project.
